@@ -1,16 +1,13 @@
 <?php
+$conn=new mysqli("localhost","root","","db_name");
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
-    $valid_username = "admin";
-    $valid_password = "password123";
-
-    if ($username === $valid_username && $password === $valid_password) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
-        header("Location: welcome.php");
+    $qry="INSERT INTO users(`username`,`password`) VALUES('abc','123')";
+    $sttr=$conn->query($qry);
+    if ($sttr) {
+        header("Location: login.php");
         exit();
     } else {
         echo "<p style='color:red;'>Invalid username or password.</p>";
