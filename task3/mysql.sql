@@ -15,5 +15,17 @@ CREATE TABLE `task2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 INSERT INTO `task2` (`id`, `R_date`, `tracking_number`, `cbm`, `weight`) VALUES
 (1, '2026-04-16 01:04:40.000000', 'qrfqrf', 'qrfqrf', 'qrfqrf');
+
+UPDATE task2 SET tracking_number='123' where id =1;
+
+DELETE FROM task2 WHERE id=1
+
 ALTER TABLE `task2`
   ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `task2`
+  ADD `abc` varchar(30)
+ALTER TABLE `task2`
+  DROP `abc`
+
+
