@@ -1,19 +1,16 @@
 <?php
 $conn=new mysqli("localhost","root","","db_name");
-
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST['username'];
     $password = $_POST['password'];
-
     $qry="SELECT * FROM users where username='$username' AND password='$password'";
     $sttr=$conn->query($qry);
-
-    if ($sttr) {
+    if($sttr){
         header("Location: welcome.php");
         exit();
-    } else {
-        echo "<p style='color:red;'>Invalid username or password.</p>";
+    }else{
+        echo'<p style="color:red;">invalid username or password.</p>';
     }
 }
 ?>
